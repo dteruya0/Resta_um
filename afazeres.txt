@@ -3,4 +3,11 @@ preencher a matriz com:
 1 - tem peça
 0 - área vazia
 
-testar para ver se está corretamente preenchido
+testar para ver se está corretamente preenchido (feito)
+
+
+-implementar o algoritmo de backtracking
+
+na minha cabeça:
+tenta comer -> recursividade
+deu ruim (onde foi retirado voltar com 1)

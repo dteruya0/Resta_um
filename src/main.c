@@ -1,6 +1,6 @@
 #include "../includes/restaum.h"
 
-static void preencher_matriz(matriz, linhas, colunas)
+static void preencher_matriz(int **b, int linhas, int colunas)
 {
     for(int i = 0; i < colunas; i++)
     {
@@ -9,8 +9,8 @@ static void preencher_matriz(matriz, linhas, colunas)
             if(j == 0 || j == 8 || i == 0 || i == 8)
                 b[i][j] = -1;
             else if (i == 4 && j == 4)
-                b[i][j] == 0;
-            else if (i >= 3 && i <= 7 && j >= 3 && j <= 7)
+                b[i][j] = 0;
+            else if ((i >= 3 && i <= 5) || (j >= 3 && j <= 5))
                 b[i][j] = 1;
             else
                 b[i][j] = -1;
@@ -19,7 +19,20 @@ static void preencher_matriz(matriz, linhas, colunas)
 }
 
 
-
+void    print_matriz(int **b, int h, int w)
+{
+    for(int i = 0; i < h; i++)
+    {
+        for(int j = 0; j < w; j++)
+        {
+            if(b[i][j] == -1)
+                printf(" # ");
+            else
+                printf(" %d ", b[i][j]);
+        }
+        printf("\n");
+    }
+}
 
 int main(void)
 {
@@ -32,7 +45,7 @@ int main(void)
     else
     {
         preencher_matriz(matriz, linhas, colunas);
-        backtracking();
+        print_matriz(matriz, linhas, colunas);
     }
     free_matriz(matriz, linhas);
     return 0;
