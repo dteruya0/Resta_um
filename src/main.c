@@ -18,33 +18,69 @@ static void preencher_matriz(int b[9][9], int linhas, int colunas)
     }
 }
 
-
-void    print_matriz(int b[9][9], int h, int w)
+void printMatrizArquivo(FILE *f, int n, int tab[n][n])
 {
-    for(int i = 0; i < h; i++)
+    for (int i = 0; i < n; i++)
     {
-        for(int j = 0; j < w; j++)
+        for (int j = 0; j < n; j++)
         {
-            if(b[i][j] == -1)
-                printf(" # ");
+            if (tab[i][j] == -1)
+                fprintf(f, "# ");
             else
-                printf(" %d ", b[i][j]);
+                fprintf(f, "%d ", tab[i][j]);
         }
-        printf("\n");
+        fprintf(f, "\n");
     }
+    fprintf(f, "\n");
+}
+
+
+void decodifica_matriz(int b[9][9], char p[31][40])
+{
+    FILE *f = fopen("saida.txt", "w");
+
+    if (!f)
+    {
+        printf("Erro ao abrir arquivo\n");
+        return;
+    }
+    printMatrizArquivo(f, 9, b);
+    int movex, movey;
+    char dir[20];
+
+    for (int k = 0; k < 31; k++)
+    {
+        sscanf(p[k], "Linha %d, Coluna %d %s", &movex, &movey, dir);
+
+        if (strcmp(dir, "BAIXO") == 0)
+            moverBaixo(9, b, movex, movey);
+        else if (strcmp(dir, "DIREITA") == 0)
+            moverDireita(9, b, movex, movey);
+        else if (strcmp(dir, "ESQUERDA") == 0)
+            moverEsquerda(9, b, movex, movey);
+        else if (strcmp(dir, "CIMA") == 0)
+            moverCima(9, b, movex, movey);
+
+        printMatrizArquivo(f, 9, b);
+    }
+    fclose(f);
 }
 
 int main(void)
 {
-    int linhas = 9;
-    int colunas = 9;
     char p[31][40];
-    int ip = 0;
     int matrix[9][9];
+    int matrix_original[9][9];
 
 
-    preencher_matriz(matrix, linhas, colunas);
-    resolveRestoUm(9, matrix, p, ip);
+    preencher_matriz(matrix, 9, 9);
+    if (resolveRestoUm(9, matrix, p, 0))
+    {
+        preencher_matriz(matrix_original, 9, 9);
+        decodifica_matriz(matrix_original, p);
+    }
+    else
+        printf("Sem solução\n");
 
     return 0;
 }

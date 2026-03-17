@@ -52,7 +52,7 @@ void desfazEsquerda(int n, int t[n][n], int linha, int coluna){
     t[linha][coluna - 2] = 0;
 }
 
-void resolveRestoUm(int n,int t[n][n], char p[31][40], int ip)
+int resolveRestoUm(int n,int t[n][n], char p[31][40], int ip)
 {
 
     // Artificio Pra Mostrar Que O Programa Não Travou.
@@ -78,10 +78,9 @@ void resolveRestoUm(int n,int t[n][n], char p[31][40], int ip)
         for(int i = 0; i < 31; i++){
             printf("%s\n", p[i]);
         }
-        print_matriz(t, 9, 9);
-        exit(0);
+        return 1;
     }
-    return; // Volta pra ultima chamada
+    return 0; // Volta pra ultima chamada
 }
 
     for(int i = 0; i < n; i++){
@@ -91,7 +90,8 @@ void resolveRestoUm(int n,int t[n][n], char p[31][40], int ip)
             if(i >= 2 && t[i][j] == 1 && t[i - 1][j] == 1 && t[i - 2][j] == 0){
                 moverCima(n, t, i, j);
                 sprintf(p[ip], "Linha %d, Coluna %d CIMA", i, j);
-                resolveRestoUm(n, t, p, ip + 1);
+                if (resolveRestoUm(n, t, p, ip + 1))
+                    return 1;
                 desfazCima(n, t, i, j);
             }
 
@@ -99,7 +99,8 @@ void resolveRestoUm(int n,int t[n][n], char p[31][40], int ip)
             if(i+ 2 < n && t[i][j] == 1 && t[i + 1][j] == 1 && t[i + 2][j] == 0){
                 moverBaixo(n, t, i, j);
                 sprintf(p[ip], "Linha %d, Coluna %d BAIXO", i, j);
-                resolveRestoUm(n, t, p, ip + 1);
+                if (resolveRestoUm(n, t, p, ip + 1))
+                    return 1;
                 desfazBaixo(n, t, i, j);
             }
 
@@ -107,7 +108,8 @@ void resolveRestoUm(int n,int t[n][n], char p[31][40], int ip)
             if(j + 2 < n && t[i][j] == 1 && t[i][j + 1] == 1 && t[i][j + 2] == 0){
                 moverDireita(n, t, i, j);
                 sprintf(p[ip], "Linha %d, Coluna %d DIREITA", i, j);
-                resolveRestoUm(n, t, p, ip + 1);
+                if (resolveRestoUm(n, t, p, ip + 1))
+                    return 1;
                 desfazDireita(n, t, i, j);
             }
 
@@ -115,9 +117,11 @@ void resolveRestoUm(int n,int t[n][n], char p[31][40], int ip)
             if(j - 2 >= 0 && t[i][j] == 1 && t[i][j - 1] == 1 && t[i][j - 2] == 0){
                 moverEsquerda(n, t, i, j);
                 sprintf(p[ip], "Linha %d, Coluna %d ESQUERDA", i, j);
-                resolveRestoUm(n, t, p, ip + 1);
+                if (resolveRestoUm(n, t, p, ip + 1))
+                    return 1;
                 desfazEsquerda(n, t, i, j);
             }
         }
     }
+    return 0;
 }
