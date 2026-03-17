@@ -52,7 +52,7 @@ void desfazEsquerda(int n, int t[n][n], int linha, int coluna){
     t[linha][coluna - 2] = 0;
 }
 
-void resolveRestoUm(int n,int t[n][n], char p[31][40], int ip)
+char **resolveRestoUm(int n,int t[n][n], char p[31][40], int ip)
 {
 
     // Artificio Pra Mostrar Que O Programa Não Travou.
@@ -78,8 +78,7 @@ void resolveRestoUm(int n,int t[n][n], char p[31][40], int ip)
         for(int i = 0; i < 31; i++){
             printf("%s\n", p[i]);
         }
-        print_matriz(t, 9, 9);
-        exit(0);
+        return p;
     }
     return; // Volta pra ultima chamada
 }
