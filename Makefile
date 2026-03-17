@@ -6,7 +6,7 @@ OBJ_DIR = obj
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = main.c deletando_matriz.c criando_matriz.c
+SRCS = main.c deletando_matriz.c criando_matriz.c resolve_resta_um.c
 OBJS = $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
 
 all: $(OBJ_DIR) $(NAME)
@@ -28,6 +28,9 @@ fclean: clean
 	rm -f $(NAME)
 
 re: fclean all
+
+run: all
+	./$(NAME)
 
 val: all
 	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes ./$(NAME)

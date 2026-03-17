@@ -1,6 +1,6 @@
 #include "../includes/restaum.h"
 
-static void preencher_matriz(int **b, int linhas, int colunas)
+static void preencher_matriz(int b[9][9], int linhas, int colunas)
 {
     for(int i = 0; i < colunas; i++)
     {
@@ -19,7 +19,7 @@ static void preencher_matriz(int **b, int linhas, int colunas)
 }
 
 
-void    print_matriz(int **b, int h, int w)
+void    print_matriz(int b[9][9], int h, int w)
 {
     for(int i = 0; i < h; i++)
     {
@@ -38,15 +38,13 @@ int main(void)
 {
     int linhas = 9;
     int colunas = 9;
+    char p[31][40];
+    int ip = 0;
+    int matrix[9][9];
 
-    int **matriz = criando_matriz(linhas, colunas);
-    if (!matriz)
-        free_matriz(matriz, linhas);
-    else
-    {
-        preencher_matriz(matriz, linhas, colunas);
-        print_matriz(matriz, linhas, colunas);
-    }
-    free_matriz(matriz, linhas);
+
+    preencher_matriz(matrix, linhas, colunas);
+    resolveRestoUm(9, matrix, p, ip);
+
     return 0;
 }

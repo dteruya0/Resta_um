@@ -7,7 +7,8 @@
 #include <stdbool.h>
 
 int **criando_matriz(int b, int a);
-void    free_matriz(int **matriz, int linhas);
+void    print_matriz(int b[9][9], int h, int w);
+void resolveRestoUm(int n,int t[n][n], char p[31][40], int ip);
 
 
 

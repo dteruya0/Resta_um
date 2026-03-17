@@ -1,5 +1,6 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include "../includes/restaum.h"
 
 long long passos = 0;
 
@@ -51,13 +52,14 @@ void desfazEsquerda(int n, int t[n][n], int linha, int coluna){
     t[linha][coluna - 2] = 0;
 }
 
-void resolveRestoUm(int n,int t[n][n], char p[31][40], int ip){
+void resolveRestoUm(int n,int t[n][n], char p[31][40], int ip)
+{
 
     // Artificio Pra Mostrar Que O Programa Não Travou.
 
     passos ++;
 
-    if (passos % 1000 == 0) {
+    if (passos % 100000 == 0) {
         printf("\rResolvendo");
         if (ip % 4 == 1) printf(".   ");
         else if (ip % 4 == 2) printf("..  ");
@@ -76,6 +78,7 @@ void resolveRestoUm(int n,int t[n][n], char p[31][40], int ip){
         for(int i = 0; i < 31; i++){
             printf("%s\n", p[i]);
         }
+        print_matriz(t, 9, 9);
         exit(0);
     }
     return; // Volta pra ultima chamada
