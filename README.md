@@ -39,7 +39,7 @@ Portanto, a complexidade pode ser representada como O(a^b), onde `a` corresponde
 
 No caso clássico do tabuleiro 9 x 9, a profundidade máxima é de 31 movimentos, o que torna o espaço de busca potencialmente muito grande. Apesar disso, nem todas as ramificações são válidas, o que reduz parcialmente o número de estados explorados na prática. Sendo assim `a = 4` e `b = 31` o que nos da uma complexidade mais especifica de `O(4^31)` no pior caso.
 
-Devido a essa característica, o algoritmo pode apresentar tempos de execução elevados. Portanto foi adicionado um indicador de status (“Resolvendo...”) com o objetivo de evitar longos períodos sem resposta.
+Devido a essa característica, o algoritmo apresenta tempo de execução elevado. Portanto foi adicionado um indicador de status (“Resolvendo...”) com o objetivo de evitar longos períodos sem resposta.
 
 ## ⚠️ Limitações
 
