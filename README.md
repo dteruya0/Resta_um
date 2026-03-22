@@ -1,3 +1,5 @@
+# Link do Youtube
+
 # Resta Um Solver Em C
 Este projeto implementa um solucionador para o jogo Resta Um utilizando a linguagem C. A solução é baseada em um algoritmo de backtracking recursivo, capaz de explorar sistematicamente todas as sequências possíveis de movimentos até encontrar uma configuração válida em que resta apenas uma peça no centro do tabuleiro. Além disso, o programa retorna a sequência de passos que levam à resolução do problema.
 

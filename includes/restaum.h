@@ -1,5 +1,15 @@
 #ifndef RESTAUM_H
 #define RESTAUM_H
+/*
+Nome: Calvin Altino Santos
+RA: 10723926
+Nome: Diego Teruya
+RA: 10723404
+Nome: Gabriel Goes Taka
+RA: 10723533
+Nome: João Vitor Firmino de Almeida
+RA: 10723778
+*/
 
 #include <unistd.h>
 #include <stdio.h>

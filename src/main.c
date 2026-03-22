@@ -1,4 +1,14 @@
 #include "../includes/restaum.h"
+/*
+Nome: Calvin Altino Santos
+RA: 10723926
+Nome: Diego Teruya
+RA: 10723404
+Nome: Gabriel Goes Taka
+RA: 10723533
+Nome: João Vitor Firmino de Almeida
+RA: 10723778
+*/
 
 static void preencher_matriz(int b[9][9], int linhas, int colunas)
 {
