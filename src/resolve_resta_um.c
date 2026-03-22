@@ -1,5 +1,3 @@
-#include <stdio.h>
-#include <stdlib.h>
 #include "../includes/restaum.h"
 
 long long passos = 0;
@@ -72,16 +70,15 @@ int resolveRestoUm(int n,int t[n][n], char p[31][40], int ip)
 
     int centro = (n - 1) / 2;
 
-    if(ip == 31){
-    if (t[centro][centro]){
-        printf("\n");
-        for(int i = 0; i < 31; i++){
-            printf("%s\n", p[i]);
+    if(ip == 31)
+    {
+        if (t[centro][centro])
+        {
+            printf("\n");
+            return 1;
         }
-        return 1;
+        return 0; // Volta pra ultima chamada
     }
-    return 0; // Volta pra ultima chamada
-}
 
     for(int i = 0; i < n; i++){
         for(int j = 0; j < n; j++){

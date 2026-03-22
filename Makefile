@@ -6,7 +6,7 @@ OBJ_DIR = obj
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
 
-SRCS = main.c deletando_matriz.c criando_matriz.c resolve_resta_um.c
+SRCS = main.c resolve_resta_um.c
 OBJS = $(addprefix $(OBJ_DIR)/,$(SRCS:.c=.o))
 
 all: $(OBJ_DIR) $(NAME)
@@ -26,6 +26,7 @@ clean:
 
 fclean: clean
 	rm -f $(NAME)
+	rm -f saida.txt
 
 re: fclean all
 
