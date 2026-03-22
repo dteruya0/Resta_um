@@ -14,15 +14,15 @@ A solução verifica todos os movimentos válidos para cada peça do tabuleiro. 
 ### Estado inicial do tabuleiro:
 
 ```txt
+# # # # # # # # #
 # # # 1 1 1 # # #
 # # # 1 1 1 # # #
-# # # 1 1 1 # # #
-1 1 1 1 1 1 1 1 1
-1 1 1 1 0 1 1 1 1
-1 1 1 1 1 1 1 1 1
-# # # 1 1 1 # # #
+# 1 1 1 1 1 1 1 #
+# 1 1 1 0 1 1 1 #
+# 1 1 1 1 1 1 1 #
 # # # 1 1 1 # # #
 # # # 1 1 1 # # #
+# # # # # # # # #
 ```
 Durante a execução, os passos são armazenados em um vetor, que registra a sequência de movimentos realizados. Quando esse vetor atinge tamanho 31 e a última peça está no centro do tabuleiro, o algoritmo considera que a solução foi encontrada e exibe a sequência completa de movimentos que levou ao resultado final, além de exibir os estados do tabuleiro após cada jogada.
 
