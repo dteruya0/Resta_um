@@ -60,7 +60,7 @@ void desfazEsquerda(int n, int t[n][n], int linha, int coluna){
     t[linha][coluna - 2] = 0;
 }
 
-int resolveRestoUm(int n,int t[n][n], char p[31][40], int ip)
+int resolveRestaUm(int n,int t[n][n], char p[31][40], int ip)
 {
 
     // Artificio Pra Mostrar Que O Programa Não Travou.
@@ -97,7 +97,7 @@ int resolveRestoUm(int n,int t[n][n], char p[31][40], int ip)
             if(i >= 2 && t[i][j] == 1 && t[i - 1][j] == 1 && t[i - 2][j] == 0){
                 moverCima(n, t, i, j);
                 sprintf(p[ip], "Linha %d, Coluna %d CIMA", i, j);
-                if (resolveRestoUm(n, t, p, ip + 1))
+                if (resolveRestaUm(n, t, p, ip + 1))
                     return 1;
                 desfazCima(n, t, i, j);
             }
@@ -106,7 +106,7 @@ int resolveRestoUm(int n,int t[n][n], char p[31][40], int ip)
             if(i+ 2 < n && t[i][j] == 1 && t[i + 1][j] == 1 && t[i + 2][j] == 0){
                 moverBaixo(n, t, i, j);
                 sprintf(p[ip], "Linha %d, Coluna %d BAIXO", i, j);
-                if (resolveRestoUm(n, t, p, ip + 1))
+                if (resolveRestaUm(n, t, p, ip + 1))
                     return 1;
                 desfazBaixo(n, t, i, j);
             }
@@ -115,7 +115,7 @@ int resolveRestoUm(int n,int t[n][n], char p[31][40], int ip)
             if(j + 2 < n && t[i][j] == 1 && t[i][j + 1] == 1 && t[i][j + 2] == 0){
                 moverDireita(n, t, i, j);
                 sprintf(p[ip], "Linha %d, Coluna %d DIREITA", i, j);
-                if (resolveRestoUm(n, t, p, ip + 1))
+                if (resolveRestaUm(n, t, p, ip + 1))
                     return 1;
                 desfazDireita(n, t, i, j);
             }
@@ -124,7 +124,7 @@ int resolveRestoUm(int n,int t[n][n], char p[31][40], int ip)
             if(j - 2 >= 0 && t[i][j] == 1 && t[i][j - 1] == 1 && t[i][j - 2] == 0){
                 moverEsquerda(n, t, i, j);
                 sprintf(p[ip], "Linha %d, Coluna %d ESQUERDA", i, j);
-                if (resolveRestoUm(n, t, p, ip + 1))
+                if (resolveRestaUm(n, t, p, ip + 1))
                     return 1;
                 desfazEsquerda(n, t, i, j);
             }
