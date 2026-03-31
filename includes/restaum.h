@@ -18,7 +18,7 @@ RA: 10723778
 #include <string.h>
 
 void    print_matriz(int b[9][9], int h, int w);
-int resolveRestoUm(int n,int t[n][n], char p[31][40], int ip);
+int resolveRestaUm(int n,int t[n][n], char p[31][40], int ip);
 void moverCima(int n, int t[n][n], int linha, int coluna);
 void moverBaixo(int n, int t[n][n], int linha, int coluna);
 void moverDireita(int n, int t[n][n], int linha, int coluna);

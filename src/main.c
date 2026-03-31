@@ -84,7 +84,7 @@ int main(void)
 
 
     preencher_matriz(matrix, 9, 9);
-    if (resolveRestoUm(9, matrix, p, 0))
+    if (resolveRestaUm(9, matrix, p, 0))
     {
         preencher_matriz(matrix_original, 9, 9);
         decodifica_matriz(matrix_original, p);

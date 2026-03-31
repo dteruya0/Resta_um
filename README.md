@@ -5,6 +5,22 @@
 - João Vitor Firmino de Almeida — RA: 10723778
 
 # Link do Youtube
+https://youtu.be/F2wUheD_-os
+
+# Comandos do Makefile
+
+### 🚀 Compilação e Execução
+* `make` — Compila o projeto e gera o executável `exec`.
+* `make run` — Compila (se necessário) e já executa o programa imediatamente.
+* `make re` — Limpa todos os arquivos gerados e recompila o projeto do zero.
+
+### 🧹 Limpeza
+* `make clean` — Remove apenas a pasta de arquivos temporários `obj/`.
+* `make fclean` — Limpeza completa: remove a pasta `obj/`, o executável `exec` e o arquivo `saida.txt`.
+
+### 🔍 Debug e Memória
+* `make val` — Executa o programa através do **Valgrind** para verificar vazamentos de memória (memory leaks).
+
 
 # Resta Um Solver Em C
 Este projeto implementa um solucionador para o jogo Resta Um utilizando a linguagem C. A solução é baseada em um algoritmo de backtracking recursivo, capaz de explorar sistematicamente todas as sequências possíveis de movimentos até encontrar uma configuração válida em que resta apenas uma peça no centro do tabuleiro. Além disso, o programa retorna a sequência de passos que levam à resolução do problema.
@@ -54,4 +70,4 @@ Devido a essa característica, o algoritmo apresenta tempo de execução elevado
 - Apesar do algoritmo receber uma matriz de dimensão n x n, a solução é projetada especificamente para um tabuleiro 9 x 9, pois essa configuração garante exatamente 31 movimentos até a solução. O caso base do algoritmo depende da verificação desse número fixo de movimentos e da permanência de uma única peça no centro do tabuleiro.
   
 - Não há otimização para evitar explorar caminhos já visitados.
-- A solução encontrada não necessariamente a melhor em termos de otimização, apenas uma solução válida.
+- A solução encontrada não é necessariamente a melhor em termos de otimização, apenas uma solução válida.
